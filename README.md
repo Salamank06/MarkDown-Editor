@@ -1,59 +1,28 @@
-# MarkdownEditor
+# MarkDown Editor Pro - Angular Standalone
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.1.
+Este proyecto es un editor de Markdown de alto rendimiento que permite la edición bidireccional: tanto desde el código fuente como directamente desde la vista previa renderizada. Está construido con Angular 17+ siguiendo principios de arquitectura limpia y seguridad web.
 
-## Development server
+## Características Principales
 
-To start a local development server, run:
+- Edición Bidireccional: Implementación de contenteditable en la vista previa que sincroniza y reconstruye el Markdown original automáticamente.
+- Motor de Procesamiento Nativo: Parser basado en expresiones regulares (Regex) para la transformación de títulos, listas, estilos inline y bloques de código.
+- Seguridad Avanzada: Sistema de sanitización de doble capa mediante DomSanitizer para prevenir ataques de Cross-Site Scripting (XSS).
+- Diseño de Alta Productividad: Interfaz split-screen con modo oscuro, optimizada para la legibilidad de código y previsualización de documentos.
 
-```bash
-ng serve
-```
+## Arquitectura del Proyecto
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Models: Contratos de datos para el manejo de resultados y estadísticas de texto (conteo de palabras y caracteres).
+- Services: Procesamiento de texto desacoplado de la interfaz de usuario para facilitar pruebas unitarias y escalabilidad.
+- Components: Uso de componentes Standalone para minimizar el peso del bundle y mejorar la modularidad.
 
-## Code scaffolding
+## Aspectos Técnicos Destacados
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. Manejo de Nodos del DOM: Implementación de un serializador personalizado que recorre el árbol de nodos de la vista previa para generar Markdown válido.
+2. Limpieza de Ruido HTML: Algoritmos de normalización para eliminar saltos de línea innecesarios (<br>) alrededor de etiquetas de bloque (h1-h3, ul, pre).
+3. Optimización de Performance: Actualización reactiva de estadísticas sin necesidad de re-renderizar el árbol de componentes completo.
 
-```bash
-ng generate component component-name
-```
+## Ejecución Local
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. npm install
+2. ng serve --port 4300
+3. Navegar a http://localhost:4300/
