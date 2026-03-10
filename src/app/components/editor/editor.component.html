@@ -1,0 +1,38 @@
+<div class="shell">
+  <header class="topbar">
+    <div class="title">MarkDown Editor</div>
+    <div class="subtitle">Standalone (Angular 17+), parser por Regex, preview seguro</div>
+  </header>
+
+  <div class="grid">
+    <section class="pane pane--left" aria-label="Editor">
+      <div class="pane__header">Markdown</div>
+      <textarea
+        class="textarea"
+        [(ngModel)]="rawText"
+        (ngModelChange)="onTextChange()"
+        placeholder="Escribe tu Markdown aquí..."
+        spellcheck="false"
+      ></textarea>
+      <footer class="footer">
+        <span>Palabras: {{ result.wordCount }}</span>
+        <span class="sep">•</span>
+        <span>Caracteres: {{ result.charCount }}</span>
+      </footer>
+    </section>
+
+    <section class="pane pane--right" aria-label="Vista previa">
+      <div class="pane__header">Vista previa</div>
+      <div
+        class="preview"
+        contenteditable="true"
+        role="textbox"
+        aria-multiline="true"
+        (input)="onPreviewInput($event)"
+        (blur)="onPreviewBlur()"
+        [innerHTML]="renderedHtml"
+      ></div>
+    </section>
+  </div>
+</div>
+
